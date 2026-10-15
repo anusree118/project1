@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f1f5f9;
+            margin: 0;
+            color: #1e293b;
+        }
+
+        header {
+            background: #1e3a8a;
+            color: white;
+            padding: 24px 8%;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        main {
+            max-width: 750px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        h2 {
+            color: #1e3a8a;
+            margin-top: 0;
+        }
+
+        .detail-row {
+            display: flex;
+            gap: 15px;
+            padding: 14px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .label {
+            width: 180px;
+            font-weight: bold;
+            color: #475569;
+        }
+
+        .value {
+            flex: 1;
+            overflow-wrap: anywhere;
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 25px;
+            background: #2563eb;
+            color: white;
+            padding: 11px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background: #1d4ed8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #64748b;
+        }
+
+        @media (max-width: 500px) {
+            main {
+                margin: 20px 12px;
+                padding: 20px;
+            }
+
+            .detail-row {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .label {
+                width: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Employee Management System</h1>
+        <p>Employee information</p>
+    </header>
+
+    <main>
+        <h2>Employee Details</h2>
+
+        <div class="detail-row">
+            <div class="label">Employee ID</div>
+            <div class="value">{{ employee.employee_id }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">Full Name</div>
+            <div class="value">{{ employee.name }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">Email</div>
+            <div class="value">{{ employee.email }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">Phone</div>
+            <div class="value">{{ employee.phone }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">Department</div>
+            <div class="value">{{ employee.department }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">Designation</div>
+            <div class="value">{{ employee.designation }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">Date of Joining</div>
+            <div class="value">{{ employee.date_of_joining|date:"d M Y" }}</div>
+        </div>
+
+        <div class="detail-row">
+            <div class="label">Status</div>
+            <div class="value">{{ employee.status }}</div>
+        </div>
+
+        <a class="back-button" href="{% url 'employees:employee_list' %}">
+            &larr; Back to Employee List
+        </a>
+    </main>
+
+    <footer>
+        Employee Management System | Django Project
+    </footer>
+</body>
+
+</html>
